@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Blog Generator</title>
+</head>
+<body>
+
+    <h1>Autonomous Blog Generator</h1>
+
+    <input type="text" id="topic" placeholder="Enter topic..." size="50">
+    <button onclick="generateBlog()">Generate</button>
+
+    <h2>Output</h2>
+    <pre id="output"></pre>
+
+    <script>
+        async function generateBlog() {
+            const topic = document.getElementById("topic").value;
+
+            document.getElementById("output").innerText = "Generating... please wait.";
+
+            const response = await fetch("/generate-blog", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ topic: topic })
+            });
+
+            const data = await response.json();
+
+            document.getElementById("output").innerText = data.article;
+        }
+    </script>
+
+</body>
+</html>
