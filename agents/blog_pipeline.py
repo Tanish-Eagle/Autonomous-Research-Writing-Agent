@@ -2,8 +2,23 @@ from agents.research_agent import research
 from agents.blog_writer import write_blog
 from agents.critic_agent import review_article
 
+def validate_query(query: str):
+
+    if not query or len(query.strip()) < 5:
+        raise ValueError("Query is too short. Please provide a meaningful topic.")
+
+    if len(query) > 200:
+        raise ValueError("Query is too long.")
+
+    banned_words = ["hack", "exploit", "bypass"]
+
+    if any(word in query.lower() for word in banned_words):
+        raise ValueError("Query contains unsafe content.")
+
 
 def generate_blog(topic: str, max_revisions: int = 3):
+
+    validate_query(topic)
 
     print("\n--- RESEARCH PHASE ---\n")
 

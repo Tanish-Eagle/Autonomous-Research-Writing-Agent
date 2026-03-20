@@ -5,11 +5,21 @@ search = DuckDuckGoSearchResults(output_format="list")
 def run_search(query: str):
     return search.invoke(query)
 
-def extract_urls(results, max_results=3):
+def extract_urls(results):
+
     urls = []
 
-    for result in results[:max_results]:
-        if "link" in result:
-            urls.append(result["link"])
+    for r in results:
+        url = r.get("link")
 
-    return urls
+        if not url:
+            continue
+
+        # basic filtering
+        if not url.startswith("http"):
+            continue
+
+        urls.append(url)
+
+    # limit number of URLs
+    return urls[:5]
