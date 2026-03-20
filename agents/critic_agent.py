@@ -15,6 +15,7 @@ Evaluate the article using the following criteria:
 3. Technical Accuracy – Are claims reasonable and consistent with the context?
 4. Completeness – Does the article fully address the topic?
 5. Readability – Is the writing smooth and professional?
+6. Reject the article if it includes claims not supported by the context.
 
 Score each category from 1 to 10.
 

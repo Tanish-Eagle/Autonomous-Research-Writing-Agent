@@ -1,6 +1,6 @@
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from agents.blog_pipeline import generate_blog
 
@@ -19,5 +19,9 @@ def home():
 
 @app.post("/generate-blog")
 def generate(request: BlogRequest):
-    article = generate_blog(request.topic)
-    return {"article": article}
+    try:
+        article = generate_blog(request.topic)
+        return {"article": article}
+    
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))

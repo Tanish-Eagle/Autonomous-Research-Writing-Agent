@@ -19,6 +19,9 @@ def research(query: str):
         results = run_search(query)
         urls = extract_urls(results)
 
+        # ✅ remove duplicates
+        urls = list(set(urls))
+
         # scrape and store knowledge
         for url in urls[:3]:
 
@@ -26,8 +29,18 @@ def research(query: str):
 
             text = scrape_page(url)
 
-            if text:
-                ingest_text(text, source=url)
+            # ❌ skip bad or weak content
+            if not text:
+                print("Skipped (no usable content)\n")
+                continue
+
+            # extra safety check
+            if len(text.strip()) < 200:
+                print("Skipped (content too short)\n")
+                continue
+
+            ingest_text(text, source=url)
+            print("Stored successfully\n")
 
     else:
 

@@ -51,6 +51,9 @@ Writing Guidelines:
 - Avoid repeating the same idea multiple times.
 - Ensure technical claims are consistent with the research context.
 - Conclude with a short summary.
+- Do not fabricate facts not present in the research context.
+- If information is insufficient, say so clearly.
+- Avoid speculation.
 
 Citation Rules:
 - Base the article on the research context.
