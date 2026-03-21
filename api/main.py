@@ -3,6 +3,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from agents.blog_pipeline import generate_blog
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = FastAPI()
 
