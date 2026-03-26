@@ -6,14 +6,16 @@ def write_blog(topic: str, feedback: str | None = None):
 
     docs = get_relevant_docs(topic)
 
-    # Build context with source information
+    # Build context with safe source handling
     context = "\n\n".join(
-        f"Source: {d.metadata['source']}\nContent: {d.page_content}"
+        f"Source: {d.metadata.get('source', 'Unknown')}\nContent: {d.page_content}"
         for d in docs
     )
 
     # Collect unique sources for reference
-    sources = list({d.metadata["source"] for d in docs})
+#    sources = list({d.metadata["source"] for d in docs})
+
+    sources = list({d.metadata.get("source") for d in docs if d.metadata.get("source")})
 
     llm = ChatOpenAI(model="gpt-4o-mini")
 
