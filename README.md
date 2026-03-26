@@ -25,8 +25,7 @@ This project implements a multi-agent pipeline that:
 
 ---
 
-
-## 🧠 System Architecture
+## System Architecture
 
 User Input
 
@@ -66,13 +65,13 @@ Final Blog Output
 
 * LLM: OpenAI (via LangChain)  
 
-Vector DB: ChromaDB  
+* Vector DB: ChromaDB  
 
-Search: DuckDuckGo (via LangChain Community Tools)  
+* Search: DuckDuckGo (via LangChain Community Tools)  
 
-Scraping: Requests + BeautifulSoup  
+* Scraping: Requests + BeautifulSoup  
 
-Environment Management: python-dotenv  
+* Environment Management: python-dotenv  
 
 ---
 
@@ -231,11 +230,9 @@ Future Improvements
 
 * Enhanced UI/UX
 
-
-License
+## License
 
 This project is for educational purposes. It is licensed under MIT license.
-
 
 Author
 
