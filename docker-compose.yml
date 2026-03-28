@@ -1,0 +1,8 @@
+services:
+  app:
+    image: tanishatwork/autonomous-writer:latest
+    container_name: autonomous-container
+    ports:
+      - "82:8000"
+    env_file:
+      - .env
