@@ -1,0 +1,11 @@
+.git/
+.venv/
+chroma_db/
+__pycache__
+
+tests/
+
+.env
+.gitignore
+readme.md
+*pyc
